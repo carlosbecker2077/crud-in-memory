@@ -19,8 +19,38 @@ function eTexto(s1) {
 }
 
 const sum = (a, b) => {
-    return a + b
+    if(eNumero(a) && eNumero(b)){
+        return a + b
+    } else {
+        throw TypeError
+    }
+}
+
+const sub = (a, b) => {
+    if(eNumero(a) && eNumero(b)){
+        return a - b
+    } else {
+        throw TypeError
+    }
+}
+
+const mult = (a,b) => {
+    if(eNumero(a) && eNumero(b)){
+        return a * b
+    } else {
+        throw TypeError
+    }
+}
+
+const divi = (a,b) => {
+    if(eNumero(a) && eNumero(b)){
+        if (b > 0){
+            return a / b
+        } else throw 'Division by zero'
+    } else {
+        throw TypeError
+    }
 }
 
 
-module.exports = { eNumero, eTexto, sum}
+module.exports = { eNumero, eTexto, sum, sub, mult, divi}
