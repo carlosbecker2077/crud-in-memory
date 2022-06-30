@@ -1,4 +1,5 @@
 const express = require('express')
+const { eTexto, eNumero, sum, sub, mult, divi } = require("../validations/utils")
 
 var router = express.Router();
 
@@ -83,6 +84,53 @@ router.delete("/frutas/:index", (req, res) => {
     frutas.splice(index, 1)
 
     return res.json({message: "A fruta foi deletada"})
+})
+
+// operações matemáticas
+
+router.get("/sum", (req, res) => {
+    const { a, b } = req.body
+    const soma = sum(a, b)
+
+    return res.json(soma)
+})
+
+router.get("/sub", (req, res) =>{
+    const { a, b } = req.body
+    const subt = sub(a, b)
+
+    return res.json(subt)
+})
+
+router.get("/mult", (req, res) =>{
+    const { a, b } = req.body
+    const multi = mult(a, b)
+
+    //return res.json(multi)  
+    if (res.status(200)){
+        return res.json(multi)
+    } else if (res.status(400)) {
+        return res.json('Bad request')  //não funcionou
+    }
+ 
+})
+
+router.get("/div", (req, res) => {
+    const { a, b } = req.body
+    const div = divi(a, b)
+
+    return res.json(div)
+})
+
+router.get("/math", (req, res) => {
+    const { op, a, b} = req.body
+    
+    switch(op){
+        case '+': return res.json(sum(a,b))
+        case '-': return res.json(sub(a,b))
+        case '*': return res.json(mult(a,b))
+        case '/': return res.json(divi(a,b))
+    }
 })
 
 module.exports = router;

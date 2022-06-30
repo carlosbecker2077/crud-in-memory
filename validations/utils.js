@@ -20,9 +20,9 @@ function eTexto(s1) {
 
 const sum = (a, b) => {
     if(eNumero(a) && eNumero(b)){
-        return a + b
+        return Number(a) + Number(b)
     } else {
-        throw TypeError
+        return 'Operação inválida'
     }
 }
 
@@ -30,7 +30,7 @@ const sub = (a, b) => {
     if(eNumero(a) && eNumero(b)){
         return a - b
     } else {
-        throw TypeError
+        return 'Operação inválida'
     }
 }
 
@@ -38,7 +38,7 @@ const mult = (a,b) => {
     if(eNumero(a) && eNumero(b)){
         return a * b
     } else {
-        throw TypeError
+        return 'Operação inválida'
     }
 }
 
@@ -46,9 +46,9 @@ const divi = (a,b) => {
     if(eNumero(a) && eNumero(b)){
         if (b > 0){
             return a / b
-        } else throw 'Division by zero'
+        } else return 'Operação inválida: divisão por zero'
     } else {
-        throw TypeError
+        return 'Operação inválida'
     }
 }
 
