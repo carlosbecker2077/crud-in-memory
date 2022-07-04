@@ -7,7 +7,7 @@ describe('type functions', () => {
             eNumero('5555b')
         }
         expect(t).toThrow(TypeError)
-        expect(t).toThrow("Invalid data type")
+        expect(t).toThrow("Invalid data type.")
     })
 
     it('should not be able to accept a empty string', () => {
@@ -15,7 +15,7 @@ describe('type functions', () => {
             eNumero(' ')
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
 
     it('should not be able to accept a symbol', () => {
@@ -23,7 +23,7 @@ describe('type functions', () => {
             eNumero('.')
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
         
     })
 
@@ -32,7 +32,7 @@ describe('type functions', () => {
             eNumero(undefined)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
 
     it('should not be able to accept undefined string', () => {
@@ -40,7 +40,7 @@ describe('type functions', () => {
             eNumero('undefined')
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
 
     it('should not be able to accept a NaN type', () => {
@@ -48,7 +48,7 @@ describe('type functions', () => {
             eNumero(NaN)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
 
     it('should be able to accept a string made only of numbers', () => {
@@ -80,7 +80,7 @@ describe('type functions', () => {
             eTexto('abcde 5555')
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
         
     })
 
@@ -89,7 +89,7 @@ describe('type functions', () => {
             eTexto('!@#$%¨&*()')
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
         
     })
 
@@ -105,7 +105,7 @@ describe('type functions', () => {
             eTexto(Infinity)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
         
     })
 
@@ -128,7 +128,7 @@ describe('math functions', () => {
             sum('#', 2)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
 
     it('should not be able to sum a space', () =>{
@@ -136,7 +136,7 @@ describe('math functions', () => {
             sum(' ', 2)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
 
     it('should not be able to sum a nan, null ...', () =>{
@@ -151,7 +151,7 @@ describe('math functions', () => {
             sum(Infinity)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
     
     it('should be able to sum a floating number string', () => {
@@ -169,7 +169,7 @@ describe('math functions', () => {
             sub('#', 2)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
 
     it('should not be able to sub a space', () =>{
@@ -177,7 +177,7 @@ describe('math functions', () => {
             sub(' ', 2)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
 
     it('should not be able to sub a nan, null ...', () =>{
@@ -192,7 +192,7 @@ describe('math functions', () => {
             sub(Infinity)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
     
     it('should be able to sub a floating number string', () => {
@@ -211,7 +211,7 @@ describe('math functions', () => {
             mult('#', 2)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
 
     it('should not be able to mult a space', () =>{
@@ -219,7 +219,7 @@ describe('math functions', () => {
             mult(' ', 2)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
 
     it('should not be able to mult a nan, null ...', () =>{
@@ -234,7 +234,7 @@ describe('math functions', () => {
             mult(Infinity)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
     
     it('should be able to mult a floating number string', () => {
@@ -253,7 +253,7 @@ describe('math functions', () => {
             divi('#', 2)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
 
     it('should not be able to divi a space', () =>{
@@ -261,7 +261,7 @@ describe('math functions', () => {
             divi(' ', 2)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
 
     it('should not be able to divi a nan, null ...', () =>{
@@ -276,7 +276,7 @@ describe('math functions', () => {
             divi(Infinity)
           };
           expect(t).toThrow(TypeError)
-          expect(t).toThrow("Invalid data type")
+          expect(t).toThrow("Invalid data type.")
     })
     
     it('should be able to divi a floating number string', () => {
@@ -294,6 +294,6 @@ describe('math functions', () => {
             divi(10, 0)
           };
           expect(t).toThrow(Error)
-          expect(t).toThrow("Invalid operation: division by zero")
+          expect(t).toThrow("Invalid operation: division by zero.")
     })
 })
