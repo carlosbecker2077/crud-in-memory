@@ -300,15 +300,30 @@ describe('math functions', () => {
     it('should not be able to do an invalid operation', () =>{
         const t = () => {
             calcula('sqrt', 20, 200)
+            calcula('', 20, 200)
+            calcula(' ', 20, 200)
           };
           expect(t).toThrow(Error)
           expect(t).toThrow("Invalid operation.")
     })
 
-    it('should be able to calculate a division', () => {
+    it('should be able to calculate a sum', () => {
         expect(calcula('sum', 34.5, 2)).toBe(36.5)
           
     })
 
-    
+    it('should be able to calculate a sub', () => {
+        expect(calcula('sub', 34.5, 2)).toBe(32.5)
+          
+    })
+
+    it('should be able to calculate a mult', () => {
+        expect(calcula('mult', 34.5, 2)).toBe(69)
+          
+    })
+
+    it('should be able to calculate a divi', () => {
+        expect(calcula('divi', 34.5, 2)).toBe(17.25)
+          
+    })   
 })

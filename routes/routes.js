@@ -1,5 +1,5 @@
 const express = require('express')
-const { eTexto, eNumero, sum, sub, mult, divi } = require("../validations/utils")
+const { eTexto, eNumero, sum, sub, mult, divi, calcula } = require("../validations/utils")
 
 var router = express.Router();
 
@@ -87,50 +87,15 @@ router.delete("/frutas/:index", (req, res) => {
 })
 
 // operações matemáticas
-
-router.get("/sum", (req, res) => {
-    const { a, b } = req.body
-    const soma = sum(a, b)
-
-    return res.json(soma)
-})
-
-router.get("/sub", (req, res) => {
-    const { a, b } = req.body
-    const subt = sub(a, b)
-
-    return res.json(subt)
-})
-
-router.post("/mult", (req, res) => {
-    try {
-        const { a, b } = req.body
-        const multi = mult(a, b)
-
-        return res.status(200).json(multi)
-
-    } catch (error) {
+router.post("/math", (req, res) => {
+    try{
+        const { op, a, b } = req.body
+        const calc = calcula(op, a, b)
+    
+        return res.status(200).json(calc)
+    
+    } catch (error){
         return res.status(500).json({errorMessage: error.message})
-
-    }
-
-})
-
-router.get("/div", (req, res) => {
-    const { a, b } = req.body
-    const div = divi(a, b)
-
-    return res.json(div)
-})
-
-router.get("/math", (req, res) => {
-    const { op, a, b } = req.body
-
-    switch (op) {
-        case '+': return res.json(sum(a, b))
-        case '-': return res.json(sub(a, b))
-        case '*': return res.json(mult(a, b))
-        case '/': return res.json(divi(a, b))
     }
 })
 
