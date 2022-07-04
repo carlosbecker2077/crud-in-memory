@@ -44,13 +44,19 @@ const divi = (a,b) => {
 }
 
 const calcula = (op, a, b) => {
-    switch (op) {
-        case '+': sum(a, b)
-        case '-': sub(a, b)
-        case '*': mult(a, b)
-        case '/': divi(a, b)
-    default: throw new Error('Invalid operation.')
-    }
+    const ops = ['sum', 'sub', 'mult', 'divi']
+    if (ops.includes(op)){
+        switch (op) {
+            case 'sum':
+                return sum(a, b)
+            case 'sub':
+                return sub(a, b)
+            case 'mult':
+                return mult(a, b)
+            case 'divi':
+                return divi(a, b)
+        }
+    } throw new Error('Invalid operation.')
 }
 
 

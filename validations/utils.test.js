@@ -1,4 +1,4 @@
-const { eTexto, eNumero, sum, sub, mult, divi } = require("./utils")
+const { eTexto, eNumero, sum, sub, mult, divi, calcula } = require("./utils")
 require('jest')
 
 describe('type functions', () => {
@@ -296,4 +296,19 @@ describe('math functions', () => {
           expect(t).toThrow(Error)
           expect(t).toThrow("Invalid operation: division by zero.")
     })
+
+    it('should not be able to do an invalid operation', () =>{
+        const t = () => {
+            calcula('sqrt', 20, 200)
+          };
+          expect(t).toThrow(Error)
+          expect(t).toThrow("Invalid operation.")
+    })
+
+    it('should be able to calculate a division', () => {
+        expect(calcula('sum', 34.5, 2)).toBe(36.5)
+          
+    })
+
+    
 })
