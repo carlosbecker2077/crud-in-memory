@@ -9,7 +9,7 @@ const cursos = ["Fullstack", "Linux", "NodeJs"]
 // Retornando um curso
 router.get("/cursos/:index", (req, res) => {
     const { index } = req.params //destructuring
-    
+
     return res.json(cursos[index]) //retorno da arrow function
 })
 
@@ -83,7 +83,7 @@ router.delete("/frutas/:index", (req, res) => {
     const { index } = req.params
     frutas.splice(index, 1)
 
-    return res.json({message: "A fruta foi deletada"})
+    return res.json({ message: "A fruta foi deletada" })
 })
 
 // operações matemáticas
@@ -95,24 +95,25 @@ router.get("/sum", (req, res) => {
     return res.json(soma)
 })
 
-router.get("/sub", (req, res) =>{
+router.get("/sub", (req, res) => {
     const { a, b } = req.body
     const subt = sub(a, b)
 
     return res.json(subt)
 })
 
-router.get("/mult", (req, res) =>{
-    const { a, b } = req.body
-    const multi = mult(a, b)
+router.post("/mult", (req, res) => {
+    try {
+        const { a, b } = req.body
+        const multi = mult(a, b)
 
-    //return res.json(multi)  
-    if (res.status(200)){
-        return res.json(multi)
-    } else if (res.status(400)) {
-        return res.json('Bad request')  //não funcionou
+        return res.status(200).json(multi)
+
+    } catch (error) {
+        return res.status(500).json({errorMessage: error.message})
+
     }
- 
+
 })
 
 router.get("/div", (req, res) => {
@@ -123,13 +124,13 @@ router.get("/div", (req, res) => {
 })
 
 router.get("/math", (req, res) => {
-    const { op, a, b} = req.body
-    
-    switch(op){
-        case '+': return res.json(sum(a,b))
-        case '-': return res.json(sub(a,b))
-        case '*': return res.json(mult(a,b))
-        case '/': return res.json(divi(a,b))
+    const { op, a, b } = req.body
+
+    switch (op) {
+        case '+': return res.json(sum(a, b))
+        case '-': return res.json(sub(a, b))
+        case '*': return res.json(mult(a, b))
+        case '/': return res.json(divi(a, b))
     }
 })
 

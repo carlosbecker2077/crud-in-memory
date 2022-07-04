@@ -1,12 +1,11 @@
 function eNumero(n1) {
-    if (!/[a-z]/i.test(n1)){
+    if (!/[a-z]/i.test(n1) && n1 !== ' '){
         n1 = Number(n1)
         if (Number.isFinite(n1)){
             return true
         }
-    } return false
+    } throw new TypeError('Invalid data type')
 }
-
 function eTexto(s1) {
     const lista = ['NaN', 'null', 'Infinity', 'undefined']
     
