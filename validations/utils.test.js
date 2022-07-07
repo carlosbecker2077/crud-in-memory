@@ -160,7 +160,7 @@ describe('math functions', () => {
     })
 
     it('should be able to sum a floating number', () => {
-        expect(sum('34.5', 2)).toBe(36.5)    
+        expect(sum(34.5, 2)).toBe(36.5)    
     })
 
     it('should not be able to sub a string', () =>{
