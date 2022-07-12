@@ -1,7 +1,7 @@
 //importa o express
-const UserRouter = require('./routes/routesUser')
 const express = require('express')
 const router = require('./routes/routes')
+const UserRouter = require('./routes/routesUser')
 
 //iniciar o projeto
 const server = express()

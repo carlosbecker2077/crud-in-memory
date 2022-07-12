@@ -1,5 +1,6 @@
-const express = require('express')
-const { eTexto, eNumero, sum, sub, mult, divi, calcula } = require("../validations/utils")
+const express = require('express');
+const mathController = require('../controller/mathController');
+const { eTexto, eNumero, sum, sub, mult, divi, calcula } = require("../../../utils/utils")
 
 var router = express.Router();
 
@@ -7,11 +8,14 @@ var router = express.Router();
 const cursos = ["Fullstack", "Linux", "NodeJs"]
 
 // Retornando um curso
-router.get("/cursos/:index", (req, res) => {
-    const { index } = req.params //destructuring
+router.get("/cursos/:index", GetAllController)
 
+function GetAllController(req, res) {
+    const { index } = req.params //destructuring
+    // Fazer validação da entrada de dados
+    // Chamar o usecase
     return res.json(cursos[index]) //retorno da arrow function
-})
+}
 
 // Retornando todos os cursos
 router.get("/cursos", (req, res) => {
@@ -88,15 +92,7 @@ router.delete("/frutas/:index", (req, res) => {
 
 // operações matemáticas
 router.post("/math", (req, res) => {
-    try{
-        const { op, a, b } = req.body
-        const calc = calcula(op, a, b)
-    
-        return res.status(200).json(calc)
-    
-    } catch (error){
-        return res.status(500).json({errorMessage: error.message})
-    }
+   return mathController(req, res)
 })
 
 module.exports = router;

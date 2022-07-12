@@ -62,4 +62,4 @@ const calcula = (op, a, b) => {
 
 
 
-module.exports = { eNumero, eTexto, sum, sub, mult, divi, calcula}
+module.exports = { eNumero, eTexto, sum, sub, mult, divi, calcula }
